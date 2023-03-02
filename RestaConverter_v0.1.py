@@ -30,10 +30,10 @@ def trnsltFl():
     dxf2 = []
     ##########################################################
     def MidArcPoint(a,b,c,d,e):
-        p1 = [a,b]
-        p1 = np.array(p1)
-        p2 = [c,d]
-        p2 = np.array(p2)
+        point1 = [a,b]
+        point1 = np.array(point1)
+        point2 = [c,d]
+        point2 = np.array(point2)
         b = e
         def sign(b):
             if b == 0:
@@ -43,8 +43,8 @@ def trnsltFl():
             else:
                 b = 1
             return b
-        m = (p1+p2)/2
-        p1p2 = p2-p1
+        m = (point1+point2)/2
+        p1p2 = point2-point1
         p1m = ((p1p2*0.5)*(-1))
         d2 = ((math.pow(p1m[0],2))+(math.pow(p1m[1],2))) ** 0.5
         d1 = d2 * math.fabs(b)
@@ -56,7 +56,7 @@ def trnsltFl():
         MQ_L = (MQ_star[0]**2 + MQ_star[1]**2) ** 0.5
         MQn = MQ_star / MQ_L
         MQ = d1 * MQn
-        M_star = p1 + p2
+        M_star = point1 + point2
         M_ = M_star * 0.5
         Q = M_ + MQ
         return f' X{round(float(Q[0]),2)} Y{round(float(Q[1]),2)}'
